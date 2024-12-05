@@ -1,22 +1,20 @@
 body {
-    background-color: lightcoral;
-  }
-  h1 {
-    color: white;
-    text-align: center;
-  }
-  p {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-  }
+  background-color: lightcoral;
+}
 
-  p {
-    margin-top: 20px;
-    margin-bottom: 100px;
-    margin-right: 150px;
-    margin-left: 80px;
-  }
-  .center {
-    margin: auto;
-    width: 50%;
-  }
+h1 {
+  color: white;
+  text-align: center;
+}
+
+p {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  margin: 20px 150px 100px 80px;
+}
+
+h1.center {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
