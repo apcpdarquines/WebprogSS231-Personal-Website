@@ -21,3 +21,9 @@
   padding: 20px 0;
   font-size: 30px;
 }
+
+p {
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
