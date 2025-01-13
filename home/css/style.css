@@ -223,7 +223,6 @@ section.projects div.cards{
 section.projects div.card{
     width: 350px;
     height: 240px;
-    display: flex;
     flex-direction: column;
     align-items: center;
     background-color: var(--gray-400);
