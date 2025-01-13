@@ -1,54 +1,129 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="css/mystyle.css">
-<title>Personal Profile Webpage</title>
+  <title>My first Vue page</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/flexbox-grid.css?version=0.1">   
+  <link rel="stylesheet" href="css/bind.css?version=0.1">   
+  <link rel="stylesheet" href="css/images.css?version=0.1">   
+  <link rel="stylesheet" href="css/shopping.css?version=0.1">   
 </head>
 <body>
 
-<h1>About me</h1>
-<p>
-  Hi my name is Peter D Arquines jr. I am a Filipino who lives in makati city with little experience on coding, cybersecurity, web development. 
-</p>
-<img src="Peter Jr.jpg" alt="" width="300" height="300">
+    <div class="container">
+        <header>
+            <h1>Personal Profile Web page </h1>
+          </header>
+        <main>
+          <section class="main-content">
+            <h1>About me</h1>
+            <p>
+              Hi my name is Peter D Arquines jr. I am a Filipino who lives in makati city with little experience on coding, cybersecurity, web development. 
+            </p>
+            
+            <h1>Education & Achievement</h1>
+            <p>I have studied at Pitogo High School Makati City manila both high school and senior high school
+              I am Currently a 2nd studying at Asia Pacific College</p>
+            
+            <h1>Course</h1>
+            <p>I am pursuing Computer Science as my main Course in college and I chose this course because I was very intruiged at how techonology
+              can be so advanced especially in today's modern era.</p>
+            
+            <h1>IT Experience</h1>
+            <p>I had little to known experience in the field of IT. Back in 2022, I was still studying as a Senior high school where i started
+              study python, HTML and CSS. I continued to study in coding by myself and learning via youtube videos, over the course of time i learned
+              and continue on learning as I enter my 1st year in college up until now.</p>
+            
+            <h1>Hobbies & Interests</h1>
+            <p> My hobbies and Interests are taking pictures, playing Volleyball and video games, Exercising such as working out
+               watching anime and reading korean manga which is also known as Manhwa.</p>
+            
+            <h1>Goals in life/Dream</h1>
+            <p>My goal in life is to graduate as a cum laude or higher so that I can give back to my parents for what they have
+              sacrificed through out there life. I also have another goal which is to become successful so that I could finally
+              unite with my love one who is in another country.</p>
+            
+            <h1>Picture Gallery</h1>
+            <img src="Pic1.png" alt="Edsa, Buendia" width="250" height="250">
+            <img src="Pic2.png" alt="Native St. Pinagkaisahan" width="250" height="250">
+            <img src="Pic3.png" alt="Magallanes" width="250" height="250">
+            
+            </section>
+          <aside class="sidebar">  Sidebar
+            <br>Picture Gallery    
+        </aside>
+        </main>
+        <footer>  Asia Pacific College       </footer>
+      </div>
+    
 
-<h1>Education & Achievement</h1>
-<p>I have studied at Pitogo High School Makati City manila both high school and senior high school
-  I am Currently a 2nd studying at Asia Pacific College
-</p>
+<div id="app">
+  {{ message }} <br>
+  {{'Random number: ' + Math.ceil(Math.random()*6) }}
+    <div v-bind:class="vueClass">This element is bound to the "pinkBG" class.
+    </div>
+</div>
 
-<img src="https://cdn.manilastandard.net/wp-content/uploads/2024/06/B2-3apc.jpeg" alt="Asia Pacific College" width="250" height="250">
-<img src="Pitogo.jpg" alt="Pitogo High School" width="250" height="250">
+<div id="app2">
+  <div>
+    <figure v-for="x in manyFoods">
+      <img v-bind:src="x.url">
+      <figcaption>{{ x.name }}</figcaption>
+    </figure>
+  </div>
+</div>
+  
+<div id="app3">
+  <form v-on:submit.prevent="addItem">
+    <p>
+      What do you need? <br>
+      <input type="text" required placeholder="item name.." v-model="itemName">
+    </p>
+    <p>
+      How many? <br>
+      <input type="number" placeholder="number of items.." v-model="itemNumber">
+    </p>
+    <p>
+      Important?
+      <label>
+        <input type="checkbox" v-model="itemImportant">
+        {{ itemImportant }}
+      </label>
+    </p>
+    <button type="submit">Add item</button>
+  </form>
+  <br>
+  <hr>
 
-<h1>Course</h1>
-<p>I am pursuing Computer Science as my main Course in college and I chose this course because I was very intruiged at how techonology
-  can be so advanced especially in today's modern era.
-</p>
+  <div>
+    <p><strong>Shopping list:</strong></p>
+    <ul id="ulToFind">
+      <li 
+        v-for="item in shoppingList" 
+        v-bind:class="{ impClass: item.important }"
+        v-on:click="item.found=!item.found"
+        v-show="!item.found">
+          {{ item.name }}, {{ item.number}}
+      </li>
+    </ul>
+    <ul id="ulFound">
+      <li 
+        v-for="item in shoppingList" 
+        v-bind:class="{ impClass: item.important }"
+        v-on:click="item.found=!item.found"
+        v-show="item.found">
+          {{ item.name }}, {{ item.number}}
+      </li>
+    </ul>
+  </div>
+</div>
 
-<h1>IT Experience</h1>
-<p>I had little to known experience in the field of IT. Back in 2022, I was still studying as a Senior high school where i started
-  study python, HTML and CSS. I continued to study in coding by myself and learning via youtube videos, over the course of time i learned
-  and continue on learning as I enter my 1st year in college up until now.
-</p>
 
-<h1>Hobbies & Interests</h1>
-<p> My hobbies and Interests are taking pictures, playing Volleyball and video games, Exercising such as working out
-  watching anime and reading korean manga which is also known as Manhwa. 
-</p>
-
-<h1>Goals in life/Dream</h1>
-<p>My goal in life is to graduate as a cum laude or higher so that I can give back to my parents for what they have
-  sacrificed through out there life. I also have another goal which is to become successful so that I could finally
-  unite with my love one who is in another country.
-</p>
-
-<h1>Picture Gallery</h1>
-<p>Here are some of the pictures I have at the moment
-</p>
-
-<img src="Pic1.png" alt="Edsa, Buendia" width="250" height="250">
-<img src="Pic2.png" alt="Native St. Pinagkaisahan" width="250" height="250">
-<img src="Pic3.png" alt="Magallanes" width="250" height="250">
+  
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/images.js"></script>
+<script src="js/shopping.js"></script>
 
 </body>
 </html>
