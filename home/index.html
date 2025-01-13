@@ -44,18 +44,24 @@
               unite with my love one who is in another country.</p>
             
             <h1>Picture Gallery</h1>
-            <img src="Pic1.png" alt="Edsa, Buendia" width="250" height="250">
-            <img src="Pic2.png" alt="Native St. Pinagkaisahan" width="250" height="250">
-            <img src="Pic3.png" alt="Magallanes" width="250" height="250">
+              <div id="app2">
+                <div>
+                  <figure v-for="x in manyFoods">
+                    <img v-bind:src="x.url">
+                    <figcaption>{{ x.name }}</figcaption>
+                  </figure>
+                </div>
+              </div>
             
             </section>
           <aside class="sidebar">  Sidebar
+            <script src="js/images.js"></script>
+            
             <br>Picture Gallery    
         </aside>
         </main>
         <footer>  Asia Pacific College       </footer>
       </div>
-    
 
 <div id="app">
   {{ message }} <br>
@@ -64,19 +70,8 @@
     </div>
 </div>
 
-<div id="app2">
-  <div>
-    <figure v-for="x in manyFoods">
-      <img v-bind:src="x.url">
-      <figcaption>{{ x.name }}</figcaption>
-    </figure>
-  </div>
-</div>
-
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="js/vue.js"></script>
-<script src="js/images.js"></script>
-
 
 </body>
 </html>
