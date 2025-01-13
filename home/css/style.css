@@ -253,6 +253,8 @@ section.projects div.cards div.card div.description-project{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    position: relative;
+    bottom: -150px;
 }
 
 section.projects div.cards div.card div.description-project span.title-project{
